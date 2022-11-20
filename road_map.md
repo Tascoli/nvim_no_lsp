@@ -12,24 +12,30 @@ Dentro da pasta `.config/nvim` criamos o arquivo `init.lua`.
 
 Como havíamos dito no artigo anterior dessa série o Neovim utiliza API do Vim para entregar os resultados ou consultar comandos e executá-los e para esse caso utiliza a API vim.cmd.
 
-´´´sh
+```sh
 vim.cmd([[ set guicursor= ]])
 ```
-
 Se você quiser criar um arquivo separado com suas configurações e importá-lo para seu init.lua fica mais organizado, exemplo: criar um arquivo settings.lua e no seu init.lua basta adicionar essa linha:
 
+```lua
 require("settings")
-
+```
 O mais correto mesmo é você criar um diretório de nome lua/ e dentro dele pôr todos os arquivos que serão importados pelo init.lua, exemplo:
 
+```
 mkdir -p ~/.config/nvim/lua
+```
+
 E mover o settings.lua para lá:
 
+```
 mv ~/.config/nvim/settings.lua ~/.config/nvim/lua/
+```
+
 E o init.lua irá automáticamente ler o settings.lua mesmo sem indicar o diretório porque isso faz parte do 'runtimepath', ou seja, esse diretório de nome lua/ faz parte do padrão.
-
+```lua
 vim.cmd([[ set guicursor= ]])
-
+```
 Procure por ajuda no próprio nvim
 
 ```
@@ -37,6 +43,28 @@ Procure por ajuda no próprio nvim
 :h lua-vimscrpit
 ```
 
+## Keymaps
+
+At first glance, the Lua code might appear too verbose but it’s a good thing as
+you’ll see soon.
+
+In the Lua code snippet we shared above, we defined a function called map(). It accepts four parameters namely:
+
+1. mode (as in Vim modes like Normal/Insert mode)
+
+2. lhs (the custom keybinds you need) -> {lhs}	means left-hand-side	*{lhs}*
+
+3. rhs (the commands or existing keybinds to customise) -> {rhs} means right-hand-side	*{rhs}*
+   
+4. opts (additional options like <silent>/<noremap>, see :h map-arguments for more info on it)
+
+    - nnoremap  - the noremap for non-recursive remaps - All use this way
+    - to define a mapping which will not be echoed on the command line, add "<silent>" as the first argument.
+
+
+```vim
+vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+```
 
 
 
@@ -54,15 +82,23 @@ https://stackoverflow.com/questions/72763801/minimal-neovim-lua-config-for-using
 
 https://bryankegley.me/posts/nvim-getting-started/
 
+https://juliobiason.gitbooks.io/um-vim-por-dia/content/map.html
 
-#### Referências
+## Referências
 [Chris@Machine](https://github.com/ChristianChiarulli/nvim)
+
 [Como Customizar do Zero](https://terminalroot.com.br/2021/11/tudo-sobre-neovim-com-lua-como-customizar-do-zero.html)
+
 [Neovim do Zero em 2022](https://www.manualdocodigo.com.br/vim-basico/)
+
 [Everything you need to know to configure neovim using lua](https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/)
-[Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
-)
+
+[Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
+
 [Configure Neovim in Lua](https://www.meetgor.com/neovim-vimscript-to-lua/)
+
 [Neovim for Beginners](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
-[ellisonleao/nvim-lua-guide]
-(https://github.com/ellisonleao/nvim-lua-guide/blob/main/README.pt-br.md)
+
+[ellisonleao/nvim-lua-guide](https://github.com/ellisonleao/nvim-lua-guide/blob/main/README.pt-br.md)
+
+[Devgenius](https://blog.devgenius.io/create-custom-keymaps-in-neovim-with-lua-d1167de0f2c2)         
