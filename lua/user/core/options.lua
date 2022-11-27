@@ -1,7 +1,9 @@
+-- Autor: Tadeu Ascoli
+-- Country: Brazil
+-- e-mail: tascoli@gmail.com
 
 local g = vim.g
 local o = vim.o
-
 
 -- Genral options
 
@@ -34,8 +36,7 @@ vim.cmd([[set guicursor= ]])        -- disable cursor block
 o.scrolloff = 8                     -- is one of my fav
 o.sidescrolloff = 8
 o.bs= "2"                           -- make backspace behave like normal again
---o.cursorline = true                 -- Show cursor line
---o.cursorline = true                 -- highlight the current line
+o.cursorline = true                 -- highlight the current line
 
 -- Disable annoying beeping
 

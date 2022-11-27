@@ -1,3 +1,7 @@
+-- Autor: Tadeu Ascoli
+-- Country: Brazil
+-- e-mail: tascoli@gmail.com
+
 M = {}
 local opts = { noremap = true, silent = true }
 
@@ -86,4 +90,21 @@ keymap("n", "<C-tab>", "<c-6>", opts)
 keymap("", "<A-j>", "<ESC>v :m .+1<CR>==", opts)
 keymap("", "<A-k>", "<ESC>v :m .-2<CR>==", opts)
 
+-- PLUGINS Keymaps
+
+-- NVIM TREE
+-- Open and Close NvimTree
+keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- COMMENT
+--TODO need change 'gcc' to Ctrl + /
+-- Comment with Ctrl + /
+-- keymap("n", "<A-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+-- keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+
+--keymap('n', '<C-/>', '<Plug>(comment_toggle_linewise)', opts)
+--keymap('x', '<A-?>', '<Plug>(comment_toggle_blockwise_visual)')
+
+  --<Plug>(comment_toggle_linewise)*
+  --<Plug>(comment_toggle_blockwise)*
 return M
