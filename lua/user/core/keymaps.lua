@@ -85,6 +85,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-tab>", "<c-6>", opts)
 
+-- Insert --
+-- Better Escape
+keymap("i", "jk", "<ESC>", opts)
+
 -- Visual
 -- Move text up and down <A is Alt
 keymap("", "<A-j>", "<ESC>v :m .+1<CR>==", opts)
