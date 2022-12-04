@@ -5,7 +5,7 @@
 local fn = vim.fn
 
 local ensure_packer = function()
-    
+
     local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
         if fn.empty(fn.glob(install_path)) > 0 then
             fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -14,24 +14,16 @@ local ensure_packer = function()
         end
             return false
 end
-   
+
 local packer_bootstrap = ensure_packer()
 
--- TODO - Review autocommand
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd([[ 
---  augroup packer_user_config
---    autocmd!
---    autocmd BufWritePost plugins_setup.lua source <afile> | PackerSync
---  augroup end
---  ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
     print("Packer doesn't works!!!")
   return
-end 
+end
 
 
 -- Have packer use a popup window
@@ -54,10 +46,10 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'    -- Have packer manage itself
 
     use 'nvim-lua/plenary.nvim'     -- Useful lua functions used ny lots of plugins
-    
+
     -- Devicons
     use 'nvim-tree/nvim-web-devicons'
-    
+
     -- Nvim Tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -65,7 +57,7 @@ return require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }   
+    }
 
     -- Lualine
     use {
@@ -73,25 +65,29 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    -- Tabline
-    use {
-        'kdheepak/tabline.nvim',
-        requires = {'hoob3rt/lualine.nvim', 'kyazdani42/nvim-web-devicons'}
-        }
+    -- Bufferline
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
     -- Comment with 'gcc'
-    use {
-        'numToStr/Comment.nvim',
-    }
+    use {'numToStr/Comment.nvim',}
 
-    
-     
+
+
     -- COLORSCHEME Section
 
+    -- Colorscheme Darkplus
+    use 'martinsione/darkplus.nvim'
     -- Colorscheme Nightfox
     use 'EdenEast/nightfox.nvim'
     -- Colorscheme Onedark
     use 'navarasu/onedark.nvim'
+    -- Colorscheme Tokyonight
+    use 'folke/tokyonight.nvim'
+    -- Colorscheme Gruvbox
+    use 'ellisonleao/gruvbox.nvim'
+
+
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

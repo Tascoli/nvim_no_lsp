@@ -23,12 +23,6 @@ o.undofile = true                   -- enable persistent undo
 o.undolevels=700
 
 
--- Usefull to Completation 
-
---o.completeopt = { "menuone", "noselect" }     -- mostly just for cmp
---o.pumheight = 10                              -- pop up menu height
---o.updatetime = 100                            -- faster completion (4000ms default)
-
 -- Mouse, backspace and cursor
 
 o.mouse = "a"                       -- on OSX press ALT and click
@@ -44,12 +38,13 @@ o.belloff = true                    -- Specifies for which events the bell will 
 
 --APARENCIA
 
+-- Global
 o.title = true                    -- when on, the title of the window will be set to the value of 'titlestring' 
 o.showmode = false                -- we don't need to see things like -- INSERT -- anymore
-o.showcmd = false                 -- show (partial) command in the last line of the screen. 
+o.showcmd = false                 -- show (partial) command in the last line of the screen.
 o.laststatus = 3                  -- have a global statusline at the bottom instead of one for each window
 o.showtabline = 0                 -- always show tabs
-o.cmdheight = 1                   -- more space in the neovim command line for displaying messages 
+o.cmdheight = 1                   -- more space in the neovim command line for displaying messages
 o.ruler = false                   -- show the line and column number of the cursor position, separated by a comma. 
 
 -- Showing line numbers, length and wrap
@@ -57,13 +52,17 @@ o.ruler = false                   -- show the line and column number of the curs
 o.number = true                     -- show line numbers
 o.relativenumber = false            -- set relative numbered lines
 o.numberwidth = 4                   -- set number column width to 2 {default 4}
-o.showbreak = ">>>"                 -- add ">>>" when line wrapping ex: "..." or "+++" 
+o.showbreak = ">>>"                 -- add ">>>" when line wrapping ex: "..." or "+++"
 --o.textwidth = 79                    -- max. width of text in document (used by gd)
 o.wrap = false                      -- if false don't automatically wrap on load  / -- display lines as one long line
 o.wrapmargin = 4                    -- number of characters from the right window border where wrappingstarts.  When typing text beyond this limit, an <EOL> will be inserted and inserting continues on the next line.
 o.formatoptions = "l"               -- don't automatically wrap text when typing
 o.linespace = 4                     -- add some line space for easy reading
-o.colorcolumn=80
+o.colorcolumn = "80"
+--o.colorcolumn = "120"
+--o.conceallevel = 0               -- so that `` is visible in markdown files
+
+
 
 --vim.highlight.create('ColorColumn', {ctermbg=234, guibg=lightgrey}, false)
 --highlight ColorColumn ctermbg=233
@@ -71,21 +70,54 @@ o.colorcolumn=80
 
 -- Real programmers don't use TABs but spaces
 
-o.expandtab= true                   -- convert tabs to spaces
-o.tabstop= 4                        -- indent using four spaces.
-o.softtabstop= 4
-o.shiftwidth= 4
-o.shiftround= true                  -- when shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
-o.autoindent= true                  -- new lines inherit the indentation of previous lines
+o.expandtab = true                   -- convert tabs to spaces
+o.tabstop = 4                        -- indent using four spaces.
+o.softtabstop = 4
+o.shiftwidth = 4
+o.shiftround = true                  -- when shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
+o.autoindent = true                  -- new lines inherit the indentation of previous lines
 o.smartindent = true                -- make indenting smarter again
 
 -- SEARCH - Make search case insensitive
 
 o.ignorecase = true                 -- ignore case in search patterns
-o.smartcase = true                  -- if you have a pattern with at least one uppercase character, the search becomes case sensitive. 
+o.smartcase = true                  -- if you have a pattern with at least one uppercase character, the search becomes case sensitive.
 o.hlsearch = true                   -- highlight all matches on previous search pattern
 
---TODO Review
+-- USEFULL to PLUGINS
+
+-- Nvim-tree
+
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+
+-- Usefull to Completation
+
+--o.completeopt = { "menuone", "noselect" }     -- mostly just for cmp
+--o.pumheight = 10                              -- pop up menu height
+--o.updatetime = 100                            -- faster completion (4000ms default)
+
+
+-- TODO Review
+
+-- vim.opt.
+
+vim.opt.iskeyword:append('-')               -- Set dash as word
+-- vim.opt.shortmess:append "c"
+-- vim.opt.fillchars:append {
+--   stl = ' ',
+-- }
+-- vim.opt.fillchars.eob = " "
+-- vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+-- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
+-- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
+
+--vim.cmd "set whichwrap+=<,>,[,],h,l"
+
+
+
+--
 --
 --    OTHER THINGS
 -- ----------------------
