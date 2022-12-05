@@ -10,7 +10,7 @@ end
 lualine.setup({
     options = {
       icons_enabled = true,
-      theme = 'auto',        -- TODO How call a function another file? require('user.core.colorscheme').colorscheme(),
+      theme = 'auto',        -- TODO: How call a function another file? require('user.core.colorscheme').colorscheme(),
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
       disabled_filetypes = {

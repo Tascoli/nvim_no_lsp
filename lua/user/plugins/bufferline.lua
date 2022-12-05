@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 bufferline.setup {
--- TODO - Review advanced config
+-- TODO:  - Review advanced config
 --    options = {
 --        mode = "buffers", -- set to "tabs" to only show tabpages instead
 --        numbers = "none", --| "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,

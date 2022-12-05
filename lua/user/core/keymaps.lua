@@ -8,6 +8,7 @@ local opts = { noremap = true, silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
+
 --Remap space as leader key
 keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
@@ -44,18 +45,24 @@ keymap("i","<S-Tab>","<C-D>", opts)
 keymap("v","<Tab>",">gv", opts)
 keymap("v","<S-Tab>","<gv", opts)
 
+-- SAVE FINGERS
+
+keymap('n', '<Leader>s', ':update<CR>', opts) -- Save changes
+keymap('n', '<Leader>c', ':bdelete<CR>', opts)-- Close Tab
+keymap('n', '<Leader>q', ':quit<CR>', opts)-- Quit Neovim
+
+
 --      BIND NOHL
 -- Removes highlight of your last search
 -- ``<C>`` stands for ``CTRL`` and therefore ``<C-l>`` stands for ``CTRL+l``
 
-keymap("n","<C-l>",":nohl<CR>", opts)
-keymap("i","<C-l>",":nohl<CR>", opts)
-keymap("v","<C-l>",":nohl<CR>", opts)
-
+keymap("n","<C-l>","<ESC>:nohl<CR>", opts)
+keymap("i","<C-l>","<ESC>::nohl<CR>", opts)
+keymap("v","<C-l>","<ESC>::nohl<CR>", opts)
+keymap("c","<C-l>","<ESC>::nohl<CR>", opts)
 
 --   COPY AND PASTE
 -- ----------------------
-
 
 -- Copy to Clipboard
 -- vnoremap <leader>y "+y
@@ -66,28 +73,28 @@ keymap("v","<C-l>",":nohl<CR>", opts)
 -- -- Paste from Primary Area
 -- noremap <leader>P "*p
 
-keymap("", '<leader>y', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
-keymap("", '<leader>p', '"+p', opts)       -- Paste to clipboard in normal, visual, select and operator modes
-keymap("", '<leader>Y', '"*y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
-keymap("", '<leader>P', '"*y', opts)       -- Paste to clipboard in normal, visual, select and operator modes
+keymap("", '<Leader>y', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
+keymap("", '<Leader>p', '"+p', opts)       -- Paste to clipboard in normal, visual, select and operator modes
+keymap("", '<Leader>Y', '"*y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
+keymap("", '<Leader>P', '"*y', opts)       -- Paste to clipboard in normal, visual, select and operator modes
 
 
 -- Split it vertically.
 -- Normal mode -> Ctrl + w, followed by the letter ‘v’.
--- Split it horizontally 
--- Normal mode -> Ctrl + w, followed by the letter ‘s’. 
+-- Split it horizontally
+-- Normal mode -> Ctrl + w, followed by the letter ‘s’.
 
 -- Normal --
--- Better window navigation
+-- Better window navigation <A is Alt
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<C-tab>", "<c-6>", opts)
+-- keymap("n", "<C-tab>", "<c-6>", opts)
 
--- Insert --
 -- Better Escape
 keymap("i", "jk", "<ESC>", opts)
+keymap("c", "jk", "<ESC>", opts)
 
 -- Visual
 -- Move text up and down <A is Alt
@@ -100,8 +107,18 @@ keymap("", "<A-k>", "<ESC>v :m .-2<CR>==", opts)
 -- Open and Close NvimTree
 keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
 
+
+-- BUFFERLINE
+-- Navigate in Tabs
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+
+-- Todo Comment
+keymap('n', '<Leader>td', ':TodoLocList<CR>', opts)
+keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)
+
 -- COMMENT
---TODO need change 'gcc' to Ctrl + /
+-- TODO: need change 'gcc' to Ctrl + /
 -- Comment with Ctrl + /
 -- keymap("n", "<A-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 -- keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
@@ -111,4 +128,15 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
 
   --<Plug>(comment_toggle_linewise)*
   --<Plug>(comment_toggle_blockwise)*
+
+-- TELESCOPE
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 return M
+
