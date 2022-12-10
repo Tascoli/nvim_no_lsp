@@ -55,7 +55,7 @@ In the Lua code snippet we shared above, we defined a function called map(). It 
 2. lhs (the custom keybinds you need) -> {lhs}	means left-hand-side	*{lhs}*
 
 3. rhs (the commands or existing keybinds to customise) -> {rhs} means right-hand-side	*{rhs}*
-   
+
 4. opts (additional options like <silent>/<noremap>, see :h map-arguments for more info on it)
 
     - nnoremap  - the noremap for non-recursive remaps - All use this way
@@ -66,7 +66,10 @@ In the Lua code snippet we shared above, we defined a function called map(). It 
 vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 ```
 
+<!-- TODO:
+Review and set references
 
+-->
 
 [Packer](https://github.com/wbthomason/packer.nvim)
 
@@ -89,6 +92,8 @@ https://icyphox.sh/blog/nvim-lua/
 ## Referências
 [Chris@Machine](https://github.com/ChristianChiarulli/nvim)
 
+[Miners](https://blog.codeminer42.com/neovim-tips-and-how-to-start/)
+
 [Como Customizar do Zero](https://terminalroot.com.br/2021/11/tudo-sobre-neovim-com-lua-como-customizar-do-zero.html)
 
 [Neovim do Zero em 2022](https://www.manualdocodigo.com.br/vim-basico/)
@@ -103,4 +108,4 @@ https://icyphox.sh/blog/nvim-lua/
 
 [ellisonleao/nvim-lua-guide](https://github.com/ellisonleao/nvim-lua-guide/blob/main/README.pt-br.md)
 
-[Devgenius](https://blog.devgenius.io/create-custom-keymaps-in-neovim-with-lua-d1167de0f2c2)         
+[Devgenius](https://blog.devgenius.io/create-custom-keymaps-in-neovim-with-lua-d1167de0f2c2)

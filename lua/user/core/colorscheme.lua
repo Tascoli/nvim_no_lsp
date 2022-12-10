@@ -3,7 +3,7 @@
 -- e-mail: tascoli@gmail.com
 
 colorscheme = function()
-    str = 'darkplus'
+    str = 'tokyonight'
     return str
 end
 

@@ -47,36 +47,26 @@ keymap("v","<S-Tab>","<gv", opts)
 
 -- SAVE FINGERS
 
-keymap('n', '<Leader>s', ':update<CR>', opts) -- Save changes
-keymap('n', '<Leader>c', ':bdelete<CR>', opts)-- Close Tab
-keymap('n', '<Leader>q', ':quit<CR>', opts)-- Quit Neovim
+keymap('n', '<Leader>s', ':update<CR>', opts)   -- Save changes
+keymap('n', '<Leader>q', ':quit<CR>', opts)     -- Quit Neovim
 
 
 --      BIND NOHL
 -- Removes highlight of your last search
--- ``<C>`` stands for ``CTRL`` and therefore ``<C-l>`` stands for ``CTRL+l``
+-- ``<M>`` stands for ``Modify or Alt`` and therefore ``<M-l>`` stands for ``Alt+l``
 
-keymap("n","<C-l>","<ESC>:nohl<CR>", opts)
-keymap("i","<C-l>","<ESC>::nohl<CR>", opts)
-keymap("v","<C-l>","<ESC>::nohl<CR>", opts)
-keymap("c","<C-l>","<ESC>::nohl<CR>", opts)
+keymap("","<M-l>","<ESC>:nohl<CR>", opts)       -- In any mode.
+-- keymap("i","<M-l>","<ESC>:nohl<CR>", opts)
+-- keymap("v","<M-l>","<ESC>:nohl<CR>", opts)
+-- keymap("c","<M-l>","<ESC>:nohl<CR>", opts)
 
 --   COPY AND PASTE
 -- ----------------------
 
--- Copy to Clipboard
--- vnoremap <leader>y "+y
--- -- Paste from Clipboard
--- noremap <leader>p "+p
--- -- Copy to Primary Area
--- vnoremap <leader>Y "*y
--- -- Paste from Primary Area
--- noremap <leader>P "*p
-
-keymap("", '<Leader>y', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
-keymap("", '<Leader>p', '"+p', opts)       -- Paste to clipboard in normal, visual, select and operator modes
-keymap("", '<Leader>Y', '"*y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
-keymap("", '<Leader>P', '"*y', opts)       -- Paste to clipboard in normal, visual, select and operator modes
+keymap("", '<Leader>y', '"+y', opts)        -- Copy to Clipboard
+keymap("", '<Leader>p', '"+p', opts)        -- Paste from Clipboard
+keymap("", '<Leader>Y', '"*y', opts)        -- Copy to Primary Area NOTE: It seems doesn't works
+keymap("", '<Leader>P', '"*y', opts)        -- Paste from Primary Area NOTE: It seems doesn't works
 
 
 -- Split it vertically.
@@ -85,11 +75,11 @@ keymap("", '<Leader>P', '"*y', opts)       -- Paste to clipboard in normal, visu
 -- Normal mode -> Ctrl + w, followed by the letter ‘s’.
 
 -- Normal --
--- Better window navigation <A is Alt
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Better window navigation <M is Alt
+keymap("n", "<M-h>", "<C-w>h", opts)
+keymap("n", "<M-j>", "<C-w>j", opts)
+keymap("n", "<M-k>", "<C-w>k", opts)
+keymap("n", "<M-l>", "<C-w>l", opts)
 -- keymap("n", "<C-tab>", "<c-6>", opts)
 
 -- Better Escape
@@ -98,36 +88,39 @@ keymap("c", "jk", "<ESC>", opts)
 
 -- Visual
 -- Move text up and down <A is Alt
-keymap("", "<A-j>", "<ESC>v :m .+1<CR>==", opts)
-keymap("", "<A-k>", "<ESC>v :m .-2<CR>==", opts)
+keymap("", "<C-j>", "<ESC>v :m .+1<CR>==", opts)
+keymap("", "<C-k>", "<ESC>v :m .-2<CR>==", opts)
+-- In visual mode move text with J and K    NOTE: maybe better option
+-- keymap("x", "J", ":move '>+1gv-gv", opts)
+-- keymap("x", "K", ":move '<-2gv-gv", opts)
+
 
 -- PLUGINS Keymaps
 
 -- NVIM TREE
+
 -- Open and Close NvimTree
 keymap("n", "<Leader>e", ":NvimTreeToggle<cr>", opts)
 
 
 -- BUFFERLINE
+
 -- Navigate in Tabs
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)      -- Move next tab.
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)      -- Move previous tab.
+keymap('n', '<Leader>c', ':bdelete<CR>', opts)              -- Close Tab
 
 -- Todo Comment
-keymap('n', '<Leader>td', ':TodoLocList<CR>', opts)
-keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)
+keymap('n', '<Leader>td', ':TodoLocList<CR>', opts)         -- Show Todo list in the project.
+keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)       -- Show Todo list in anywhere.
 
 -- COMMENT
--- TODO: need change 'gcc' to Ctrl + /
--- Comment with Ctrl + /
--- keymap("n", "<A-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
--- keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 
---keymap('n', '<C-/>', '<Plug>(comment_toggle_linewise)', opts)
---keymap('x', '<A-?>', '<Plug>(comment_toggle_blockwise_visual)')
-
-  --<Plug>(comment_toggle_linewise)*
-  --<Plug>(comment_toggle_blockwise)*
+-- Comment with Alt or Cmd + /
+--
+vim.keymap.set('n', '<M-/>', 'gcc', {remap = true })
+vim.keymap.set('i', '<M-/>', '<ESC>gcc', {remap = true })
+vim.keymap.set('v', '<M-/>', 'gc', {remap = true })
 
 -- TELESCOPE
 
