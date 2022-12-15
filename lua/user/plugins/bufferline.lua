@@ -1,3 +1,7 @@
+-- Autor: Tadeu Ascoli
+-- Country: Brazil
+-- e-mail: tascoli@gmail.com
+
 
 local status_ok, bufferline = pcall(require,"bufferline")
 if not status_ok then

@@ -3,7 +3,7 @@
 -- e-mail: tascoli@gmail.com
 
 local g = vim.g
-local o = vim.o
+local o = vim.opt
 
 -- Genral options
 
@@ -34,7 +34,7 @@ o.cursorline = true                 -- highlight the current line
 
 -- Disable annoying beeping
 
-o.belloff = true                    -- Specifies for which events the bell will not be rung.
+--o.belloff = true                    -- Specifies for which events the bell will not be rung.
 
 --APARENCIA
 
@@ -94,9 +94,9 @@ o.hlsearch = true                   -- highlight all matches on previous search 
 
 -- Usefull to Completation
 
---o.completeopt = { "menuone", "noselect" }     -- mostly just for cmp
---o.pumheight = 10                              -- pop up menu height
---o.updatetime = 100                            -- faster completion (4000ms default)
+vim.opt.completeopt = { "menu", "menuone", "noselect" }     -- mostly just for cmp
+o.pumheight = 10                              -- pop up menu height
+o.updatetime = 100                            -- faster completion (4000ms default)
 
 
 -- TODO Review

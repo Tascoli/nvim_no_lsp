@@ -1,5 +1,7 @@
 # README
 
+
+
 Repositório destinado a minha configuração pessoal do Neovim.
 
 ## Remover configurações anteriores
@@ -8,14 +10,14 @@ Repositório destinado a minha configuração pessoal do Neovim.
 rm -rf ~/.config/nvim ~/.local/share/nvim
 ```
 
-## Instalação 
+## Instalação
 
-### Dependencias 
+### Dependencias
 
 - Git
 - Make e cmake
 - Python e pip
-- Nodejs e npm 
+- Nodejs e npm
 - Rust e Cargo
 - On mac install `pbcopy` or on linux install `xsel` should be builtin to fixing copy and paste.
 
@@ -33,9 +35,9 @@ NPM_CONFIG_PREFIX=~/.npm-global
 Para insta o Rust execute o seguinte comando:
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh &&
-echo "export PATH=~/.cargo/bin/:$PATH" >> .bashrc # Permanently change PATH 
-``` 
-### Neovim 
+echo "export PATH=~/.cargo/bin/:$PATH" >> .bashrc # Permanently change PATH
+```
+### Neovim
 
 Entre no [site](https://github.com/neovim/neovim/wiki/Installing-Neovim) do projeto e faça a instalação conforme achar mais conveniente.
 

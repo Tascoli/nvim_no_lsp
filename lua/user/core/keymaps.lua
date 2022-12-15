@@ -3,11 +3,11 @@
 -- e-mail: tascoli@gmail.com
 
 M = {}
+
 local opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-
 
 --Remap space as leader key
 keymap("n", "<Space>", "", opts)
@@ -47,7 +47,7 @@ keymap("v","<S-Tab>","<gv", opts)
 
 -- SAVE FINGERS
 
-keymap('n', '<Leader>s', ':update<CR>', opts)   -- Save changes
+keymap('n', '<Leader>w', ':update<CR>', opts)   -- Save changes
 keymap('n', '<Leader>q', ':quit<CR>', opts)     -- Quit Neovim
 
 
@@ -55,7 +55,7 @@ keymap('n', '<Leader>q', ':quit<CR>', opts)     -- Quit Neovim
 -- Removes highlight of your last search
 -- ``<M>`` stands for ``Modify or Alt`` and therefore ``<M-l>`` stands for ``Alt+l``
 
-keymap("","<M-l>","<ESC>:nohl<CR>", opts)       -- In any mode.
+keymap("","<C-l>","<ESC>:nohl<CR>", opts)       -- In any mode.
 -- keymap("i","<M-l>","<ESC>:nohl<CR>", opts)
 -- keymap("v","<M-l>","<ESC>:nohl<CR>", opts)
 -- keymap("c","<M-l>","<ESC>:nohl<CR>", opts)
@@ -69,18 +69,38 @@ keymap("", '<Leader>Y', '"*y', opts)        -- Copy to Primary Area NOTE: It see
 keymap("", '<Leader>P', '"*y', opts)        -- Paste from Primary Area NOTE: It seems doesn't works
 
 
+-- Normal
+
 -- Split it vertically.
 -- Normal mode -> Ctrl + w, followed by the letter ‘v’.
 -- Split it horizontally
 -- Normal mode -> Ctrl + w, followed by the letter ‘s’.
 
--- Normal --
+-- FIXME:
+-- Need create a function that indentify a OS and setup keymap.
+
+-- if ostype == 'darwin' or 'mac' then
+--     require 'user.core.mac_maps'
+-- else
+--     require 'user.core.linux_maps'
+-- end
+
 -- Better window navigation <M is Alt
-keymap("n", "<M-h>", "<C-w>h", opts)
-keymap("n", "<M-j>", "<C-w>j", opts)
-keymap("n", "<M-k>", "<C-w>k", opts)
-keymap("n", "<M-l>", "<C-w>l", opts)
+-- Exemple: keymap("n", "<M-h>", "<C-w>h", opts)
+
+keymap("n", "<Leader>h", "<C-w>h", opts)
+keymap("n", "<Leader>j", "<C-w>j", opts)
+keymap("n", "<Leader>k", "<C-w>k", opts)
+keymap("n", "<Leader>l", "<C-w>l", opts)
 -- keymap("n", "<C-tab>", "<c-6>", opts)
+
+-- COMMENT
+-- Comment with Alt or Cmd + /
+
+
+vim.keymap.set('n', '<Leader>/', 'gcc', {remap = true })
+vim.keymap.set('i', '<Leader>/>', '<ESC>gcc', {remap = true })
+vim.keymap.set('v', '<Leader>/>', 'gc', {remap = true })
 
 -- Better Escape
 keymap("i", "jk", "<ESC>", opts)
@@ -118,9 +138,16 @@ keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)       -- Show Todo list in
 
 -- Comment with Alt or Cmd + /
 --
-vim.keymap.set('n', '<M-/>', 'gcc', {remap = true })
-vim.keymap.set('i', '<M-/>', '<ESC>gcc', {remap = true })
-vim.keymap.set('v', '<M-/>', 'gc', {remap = true })
+
+
+-- COMMENT
+
+-- Comment with Alt or Cmd + /
+--
+
+-- vim.keymap.set('n', '<A/>', 'gcc', {remap = true })
+-- vim.keymap.set('i', '<A-/>', '<ESC>gcc', {remap = true })
+-- vim.keymap.set('v', '<A-/>', 'gc', {remap = true })
 
 -- TELESCOPE
 

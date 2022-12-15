@@ -89,6 +89,7 @@ https://juliobiason.gitbooks.io/um-vim-por-dia/content/map.html
 
 https://icyphox.sh/blog/nvim-lua/
 
+https://pt.wikibooks.org/wiki/Vim/Configurando_a_verifica%C3%A7%C3%A3o_ortogr%C3%A1fica
 ## Referências
 [Chris@Machine](https://github.com/ChristianChiarulli/nvim)
 

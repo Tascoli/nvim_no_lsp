@@ -1,3 +1,97 @@
+-- FIXME:
+-- Set a configuration to identify a OS and change a keymaps depending of OS
+
+local ostype = vim.loop.os_uname().sysname:lower()
+
+if os.execute('uname -s') == 'Darwin' then
+    require ('user.core.mac-maps')
+elseif os.execute('uname -s') == 'Linux' then
+    require('user.core.linux-maps')
+-- keymap("n", "<M-h>", "<C-w>h", opts)
+-- keymap("n", "<M-j>", "<C-w>j", opts)
+-- keymap("n", "<M-k>", "<C-w>k", opts)
+-- keymap("n", "<M-l>", "<C-w>l", opts)
+else
+ print('Maybe its windows')
+end
+---------------
+-- MAC OS Maps
+--------------
+
+-- Normal --
+-- Better window navigation <M is Alt
+keymap("n", "<D-h>", "<C-w>h", opts)
+keymap("n", "<D-j>", "<C-w>j", opts)
+keymap("n", "<D-k>", "<C-w>k", opts)
+keymap("n", "<D-l>", "<C-w>l", opts)
+
+-- COMMENT
+
+-- Comment with Alt or Cmd + /
+--
+
+vim.keymap.set('n', '<D-/>', 'gcc', {remap = true })
+vim.keymap.set('i', '<D-/>', '<ESC>gcc', {remap = true })
+vim.keymap.set('v', '<D-/>', 'gc', {remap = true })
+
+-------------
+-- Linux --
+------------
+
+-- Normal --
+-- Better window navigation <M is Alt
+vim.api.nvim_set_keymap("n", "<M-h>", "<C-w>h", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-j>", "<C-w>j", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-k>", "<C-w>k", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-l>", "<C-w>l", { noremap = true, silent = true })
+-- keymap("n", "<C-tab>", "<c-6>", opts)
+
+-- COMMENT
+
+-- Comment with Alt or Cmd + /
+--
+
+vim.keymap.set('n', '<M-/>', 'gcc', {remap = true })
+vim.keymap.set('i', '<M-/>', '<ESC>gcc', {remap = true })
+vim.keymap.set('v', '<M-/>', 'gc', {remap = true })
+
+
+
+
+
+-- local has = function(x)
+--     return vim.fn.has(x) == 1
+-- end
+-- print(has())
+
+
+-- local ostype = function()
+--     return vim.loop.os_uname().sysname:lower()
+-- end
+--
+-- if ostype == 'darwin' or 'mac' then
+--     require ('user.core.mac_maps')
+-- elseif ostype == 'linux' then
+--     require ('user.core.linux_maps')
+-- end
+
+-- local ostype = vim.loop.os_uname().sysname:lower()
+--
+-- print(ostype)
+--local myos = os.execute('uname -s')
+--if myos == 'Linux' then
+--   print 'Consegui'
+--end
+-- if ostype == 'darwin' or 'mac' then
+--     require ('user.core.mac-maps')
+-- elseif ostype == 'linux' then
+--     print("YES!!")
+-- end
+
+
+
+
+
 --------------------------------
 --        MEU .vimrc
 --------------------------------
