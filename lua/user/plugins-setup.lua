@@ -25,7 +25,6 @@ if not status_ok then
     return
 end
 
-
 -- Have packer use a popup window
 packer.init {
     -- snapshot = "july-24",
@@ -46,6 +45,11 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'    -- Have packer manage itself
 
     use 'nvim-lua/plenary.nvim'     -- Useful lua functions used ny lots of plugins
+
+
+-------------------------------------
+----  BASIC PLUGINS ----
+-------------------------------------
 
     -- Devicons
     use 'nvim-tree/nvim-web-devicons'
@@ -77,7 +81,30 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
         }
 
-----------------------------------------------------------------------------------------------
+    -- Toggleterm - Terminal on  nvim
+    use {"akinsho/toggleterm.nvim", tag = '*'}
+
+    -- Colorizer
+    use 'norcalli/nvim-colorizer.lua'   -- See colors in your file
+
+
+-------------------------------------
+---- COLORSCHEME Section
+-------------------------------------
+    -- Colorscheme Darkplus
+    use 'martinsione/darkplus.nvim'
+    -- Colorscheme Nightfox
+    use 'EdenEast/nightfox.nvim'
+    -- Colorscheme Onedark
+    use 'navarasu/onedark.nvim'
+    -- Colorscheme Tokyonight
+--    use 'folke/tokyonight.nvim'
+    -- Colorscheme Gruvbox
+    use 'ellisonleao/gruvbox.nvim'
+
+-------------------------------------
+---- LSP AND COMPLETION SECTION ----
+-------------------------------------
 
     use { -- Autocompletion
         'hrsh7th/nvim-cmp',
@@ -111,29 +138,6 @@ return require('packer').startup(function(use)
         'folke/neodev.nvim',
         },
     }
-
-
-    -- use { "williamboman/mason.nvim" } -- Old LSP instaler
-    -- use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-
-    -- Colorizer
-    use 'norcalli/nvim-colorizer.lua'   -- See colors in your file
-
-
-
-    -- COLORSCHEME Section
-
-    -- Colorscheme Darkplus
-    use 'martinsione/darkplus.nvim'
-    -- Colorscheme Nightfox
-    use 'EdenEast/nightfox.nvim'
-    -- Colorscheme Onedark
-    use 'navarasu/onedark.nvim'
-    -- Colorscheme Tokyonight
---    use 'folke/tokyonight.nvim'
-    -- Colorscheme Gruvbox
-    use 'ellisonleao/gruvbox.nvim'
-
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
