@@ -8,7 +8,7 @@ local o = vim.opt
 -- Genral options
 
 g.fileencoding = "utf-8"            -- the encoding written to a file
-g.termguicolors = true              -- set term gui colors (most terminals support this)
+o.termguicolors = true              -- set term gui colors (most terminals support this)
 o.swapfile = false                  -- If true creates a swapfile
 o.backup = false                    -- creates a backup file
 --o.writebackup = false               -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -99,7 +99,7 @@ o.pumheight = 10                              -- pop up menu height
 o.updatetime = 100                            -- faster completion (4000ms default)
 
 
--- TODO Review
+-- TODO: Review
 
 -- vim.opt.
 

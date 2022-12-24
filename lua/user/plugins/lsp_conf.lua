@@ -76,12 +76,20 @@ require('lspconfig').sumneko_lua.setup{
     settings = {
         Lua = {
             diagnostics = {
-                globals = { 'vim' }
+                globals = { 'vim','root_pattern' }
             }
         }
     }
 }
 
 require('lspconfig').pyright.setup {}
+
+require('lspconfig').marksman.setup{
+    cmd = {"marksman", "server"},
+    filetypes = {"markdown"},
+    -- root_dir = root_pattern('.git', '.marksman.toml'),
+    single_file_suport = true,
+}
+
 -----------------------------------------------------------------------------
 

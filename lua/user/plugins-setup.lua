@@ -101,6 +101,9 @@ return require('packer').startup(function(use)
 --    use 'folke/tokyonight.nvim'
     -- Colorscheme Gruvbox
     use 'ellisonleao/gruvbox.nvim'
+    -- Colorscheme Doom-one
+    use 'NTBBloodbath/doom-one.nvim'
+
 
 -------------------------------------
 ---- LSP AND COMPLETION SECTION ----
