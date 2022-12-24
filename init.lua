@@ -13,3 +13,4 @@ require('user.plugins.telescope')
 require('user.plugins.cmp')
 require('user.plugins.lsp_conf') -- Configure all plugins envolved in LSP
 require('user.plugins.colorizer')
+require('user.plugins.toggleterm')

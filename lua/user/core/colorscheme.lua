@@ -3,7 +3,7 @@
 -- e-mail: tascoli@gmail.com
 
 local colorscheme = function()
-    local str = 'onedark'
+    local str = 'darkplus'
     return str
 end
 
@@ -16,7 +16,7 @@ local status_ok, _  = pcall(vim.cmd, "colorscheme ".. colorscheme())
     end
 
 -- DARKPLUS
--- No settings
+-- No aditional settings for darkplus.
 
 -- NIGHTFOX Settings
 --local night_opts = {'nightfox', 'nordfox', 'carbonfox', 'terafox'}

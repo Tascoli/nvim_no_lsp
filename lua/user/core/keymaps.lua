@@ -88,19 +88,12 @@ keymap("", '<Leader>P', '"*y', opts)        -- Paste from Primary Area NOTE: It 
 -- Better window navigation <M is Alt
 -- Exemple: keymap("n", "<M-h>", "<C-w>h", opts)
 
-keymap("n", "<Leader>h", "<C-w>h", opts)
-keymap("n", "<Leader>j", "<C-w>j", opts)
-keymap("n", "<Leader>k", "<C-w>k", opts)
-keymap("n", "<Leader>l", "<C-w>l", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 -- keymap("n", "<C-tab>", "<c-6>", opts)
 
--- COMMENT
--- Comment with Alt or Cmd + /
-
-
-vim.keymap.set('n', '<Leader>/', 'gcc', {remap = true })
-vim.keymap.set('i', '<Leader>/>', '<ESC>gcc', {remap = true })
-vim.keymap.set('v', '<Leader>/>', 'gc', {remap = true })
 
 -- Better Escape
 keymap("i", "jk", "<ESC>", opts)
@@ -108,8 +101,8 @@ keymap("c", "jk", "<ESC>", opts)
 
 -- Visual
 -- Move text up and down <A is Alt
-keymap("", "<C-j>", "<ESC>v :m .+1<CR>==", opts)
-keymap("", "<C-k>", "<ESC>v :m .-2<CR>==", opts)
+keymap("", "<Leader>j>", "<ESC>v :m .+1<CR>==", opts)
+keymap("", "<Leader>k>", "<ESC>v :m .-2<CR>==", opts)
 -- In visual mode move text with J and K    NOTE: maybe better option
 -- keymap("x", "J", ":move '>+1gv-gv", opts)
 -- keymap("x", "K", ":move '<-2gv-gv", opts)
@@ -134,16 +127,16 @@ keymap('n', '<Leader>c', ':bdelete<CR>', opts)              -- Close Tab
 keymap('n', '<Leader>td', ':TodoLocList<CR>', opts)         -- Show Todo list in the project.
 keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)       -- Show Todo list in anywhere.
 
--- COMMENT
-
--- Comment with Alt or Cmd + /
---
-
 
 -- COMMENT
-
 -- Comment with Alt or Cmd + /
---
+
+vim.keymap.set('n', '<Leader>/', 'gcc', {remap = true })
+vim.keymap.set('i', '<Leader>/>', '<ESC>gcc', {remap = true })
+vim.keymap.set('v', '<Leader>/>', 'gc', {remap = true })
+
+-- COMMENT
+-- Comment with Alt or Cmd + /
 
 -- vim.keymap.set('n', '<A/>', 'gcc', {remap = true })
 -- vim.keymap.set('i', '<A-/>', '<ESC>gcc', {remap = true })
@@ -153,10 +146,10 @@ keymap('n', '<Leader>tt', ':TodoTelescope<CR>', opts)       -- Show Todo list in
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<Leader>sf', builtin.find_files, {})
+vim.keymap.set('n', '<Leader>sg', builtin.live_grep, {})
+vim.keymap.set('n', '<Leader>sb', builtin.buffers, {})
+vim.keymap.set('n', '<Leader>sh', builtin.help_tags, {})
 
 return M
 
