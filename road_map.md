@@ -71,25 +71,7 @@ Review and set references
 
 -->
 
-[Packer](https://github.com/wbthomason/packer.nvim)
 
-https://dev.to/enrsaid/neovim-initlua-built-in-lsp-e-mais-3695
-
-https://randomgeekery.org/config/init.lua/
-
-https://www.adrian.idv.hk/2022-05-07-nvim-lua/
-
-https://www.gatlin.io/content/lua-primer-for-neovim
-
-https://stackoverflow.com/questions/72763801/minimal-neovim-lua-config-for-using-nvim-cmp-with-lsp
-
-https://bryankegley.me/posts/nvim-getting-started/
-
-https://juliobiason.gitbooks.io/um-vim-por-dia/content/map.html
-
-https://icyphox.sh/blog/nvim-lua/
-
-https://pt.wikibooks.org/wiki/Vim/Configurando_a_verifica%C3%A7%C3%A3o_ortogr%C3%A1fica
 ## Referências
 [Chris@Machine](https://github.com/ChristianChiarulli/nvim)
 
@@ -99,14 +81,35 @@ https://pt.wikibooks.org/wiki/Vim/Configurando_a_verifica%C3%A7%C3%A3o_ortogr%C3
 
 [Neovim do Zero em 2022](https://www.manualdocodigo.com.br/vim-basico/)
 
-[Everything you need to know to configure neovim using lua](https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/)
+[Configurando a verificação ortográfica](https://pt.wikibooks.org/wiki/Vim/Configurando_a_verifica%C3%A7%C3%A3o_ortogr%C3%A1fica)
 
 [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 
-[Configure Neovim in Lua](https://www.meetgor.com/neovim-vimscript-to-lua/)
+[Everything you need to know to configure neovim using lua](https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/)
 
 [Neovim for Beginners](https://alpha2phi.medium.com/neovim-for-beginners-init-lua-45ff91f741cb)
 
+[NeoVim:Passos iniciais](https://dev.to/enrsaid/neovim-initlua-built-in-lsp-e-mais-3695)
+
+[My init.lua for Neovim](https://randomgeekery.org/config/init.lua/)
+
+[Getting Started with Neovim](https://bryankegley.me/posts/nvim-getting-started/)
+
+[Configure Neovim in Lua](https://www.meetgor.com/neovim-vimscript-to-lua/)
+
+[Configuring Neovim using Lua](https://icyphox.sh/blog/nvim-lua/)
+
 [ellisonleao/nvim-lua-guide](https://github.com/ellisonleao/nvim-lua-guide/blob/main/README.pt-br.md)
 
+[Packer](https://github.com/wbthomason/packer.nvim)
+
 [Devgenius](https://blog.devgenius.io/create-custom-keymaps-in-neovim-with-lua-d1167de0f2c2)
+
+
+# Referencias avançadas
+[Porting neovim config to lua](https://www.adrian.idv.hk/2022-05-07-nvim-lua/)
+
+[Lua Primer for Neovim](https://www.gatlin.io/content/lua-primer-for-neovim)
+
+[Useful lua function](https://dev.to/voyeg3r/writing-useful-lua-functions-to-my-neovim-14ki)
+
